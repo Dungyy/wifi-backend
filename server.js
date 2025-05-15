@@ -9,10 +9,11 @@ configDotenv();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const SUDO_PASSWORD = process.env.SUDO_PASSWORD || LOG.info("Did you forget to set the SUDO_PASSWORD environment variable?");
+const SUDO_PASSWORD = process.env.SUDO_PASSWORD;
 
 if (!SUDO_PASSWORD) {
         LOG.error('SUDO_PASSWORD environment variable is not set');
+        LOG.info("Did you forget to set the SUDO_PASSWORD environment variable?");
         process.exit(1);
 }
 
